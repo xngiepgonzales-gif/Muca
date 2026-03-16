@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const Banner = () => {
   return (
-    <div className="flex flex-col md:flex-row items-center justify-between md:pl-20 py-14 md:py-0 bg-[#E6E9F2] my-16 rounded-xl overflow-hidden">
+    <div className="flex flex-col md:flex-row items-center justify-between md:pl-20 py-14 md:py-0 bg-[#ffffff15] my-16 rounded-xl overflow-hidden">
       <Image
         className="max-w-56"
         src={assets.jbl_soundbox_image}
@@ -17,10 +17,11 @@ const Banner = () => {
         <p className="max-w-[343px] font-medium text-gray-800/60">
           From immersive sound to precise controls—everything you need to win
         </p>
-        <button className="group flex items-center justify-center gap-1 px-12 py-2.5 bg-orange-600 rounded text-white">
-          Buy now
-          <Image className="group-hover:translate-x-1 transition" src={assets.arrow_icon_white} alt="arrow_icon_white" />
-        </button>
+<button className="bg-gradient-to-r from-sky-400 to-emerald-400 
+text-black font-medium px-6 py-3 rounded-lg
+hover:scale-105 transition shadow-lg shadow-sky-400/20">
+Buy Now
+</button>
       </div>
       <Image
         className="hidden md:block max-w-80"

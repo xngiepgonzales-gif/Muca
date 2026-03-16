@@ -5,132 +5,118 @@ import Image from "next/image";
 
 const AddProduct = () => {
 
-  const [files, setFiles] = useState([]);
-  const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
-  const [category, setCategory] = useState('Earphone');
-  const [price, setPrice] = useState('');
-  const [offerPrice, setOfferPrice] = useState('');
+  const [files, setFiles] = useState([])
+  const [name, setName] = useState('')
+  const [description, setDescription] = useState('')
+  const [category, setCategory] = useState('Earphone')
+  const [price, setPrice] = useState('')
+  const [offerPrice, setOfferPrice] = useState('')
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-
-  };
+    e.preventDefault()
+  }
 
   return (
+
     <div className="flex-1 min-h-screen flex flex-col justify-between">
-      <form onSubmit={handleSubmit} className="md:p-10 p-4 space-y-5 max-w-lg">
+
+      <form onSubmit={handleSubmit} className="md:p-10 p-4 space-y-6 max-w-lg">
+
+        <h2 className="text-xl font-semibold bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">
+          Add Product
+        </h2>
+
         <div>
-          <p className="text-base font-medium">Product Image</p>
-          <div className="flex flex-wrap items-center gap-3 mt-2">
+
+          <p className="text-base font-medium mb-3">Product Image</p>
+
+          <div className="flex flex-wrap items-center gap-3">
 
             {[...Array(4)].map((_, index) => (
+
               <label key={index} htmlFor={`image${index}`}>
-                <input onChange={(e) => {
-                  const updatedFiles = [...files];
-                  updatedFiles[index] = e.target.files[0];
-                  setFiles(updatedFiles);
-                }} type="file" id={`image${index}`} hidden />
+
+                <input
+                  type="file"
+                  hidden
+                  id={`image${index}`}
+                  onChange={(e) => {
+                    const updated = [...files]
+                    updated[index] = e.target.files[0]
+                    setFiles(updated)
+                  }}
+                />
+
                 <Image
-                  key={index}
-                  className="max-w-24 cursor-pointer"
+                  className="max-w-24 cursor-pointer glass rounded-lg p-2"
                   src={files[index] ? URL.createObjectURL(files[index]) : assets.upload_area}
                   alt=""
                   width={100}
                   height={100}
                 />
+
               </label>
+
             ))}
 
           </div>
+
         </div>
-        <div className="flex flex-col gap-1 max-w-md">
-          <label className="text-base font-medium" htmlFor="product-name">
-            Product Name
-          </label>
-          <input
-            id="product-name"
-            type="text"
-            placeholder="Type here"
-            className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40"
-            onChange={(e) => setName(e.target.value)}
-            value={name}
-            required
-          />
-        </div>
-        <div className="flex flex-col gap-1 max-w-md">
-          <label
-            className="text-base font-medium"
-            htmlFor="product-description"
+
+        <input
+          type="text"
+          placeholder="Product Name"
+          className="glass px-4 py-2.5 rounded-lg outline-none"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+
+        <textarea
+          rows={4}
+          placeholder="Product Description"
+          className="glass px-4 py-2.5 rounded-lg outline-none resize-none"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
+
+        <div className="flex gap-4">
+
+          <select
+            className="glass px-3 py-2 rounded-lg"
+            onChange={(e) => setCategory(e.target.value)}
           >
-            Product Description
-          </label>
-          <textarea
-            id="product-description"
-            rows={4}
-            className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40 resize-none"
-            placeholder="Type here"
-            onChange={(e) => setDescription(e.target.value)}
-            value={description}
-            required
-          ></textarea>
+            <option>Earphone</option>
+            <option>Headphone</option>
+            <option>Watch</option>
+            <option>Smartphone</option>
+            <option>Laptop</option>
+          </select>
+
+          <input
+            type="number"
+            placeholder="Price"
+            className="glass px-3 py-2 rounded-lg"
+            onChange={(e) => setPrice(e.target.value)}
+          />
+
+          <input
+            type="number"
+            placeholder="Offer"
+            className="glass px-3 py-2 rounded-lg"
+            onChange={(e) => setOfferPrice(e.target.value)}
+          />
+
         </div>
-        <div className="flex items-center gap-5 flex-wrap">
-          <div className="flex flex-col gap-1 w-32">
-            <label className="text-base font-medium" htmlFor="category">
-              Category
-            </label>
-            <select
-              id="category"
-              className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40"
-              onChange={(e) => setCategory(e.target.value)}
-              defaultValue={category}
-            >
-              <option value="Earphone">Earphone</option>
-              <option value="Headphone">Headphone</option>
-              <option value="Watch">Watch</option>
-              <option value="Smartphone">Smartphone</option>
-              <option value="Laptop">Laptop</option>
-              <option value="Camera">Camera</option>
-              <option value="Accessories">Accessories</option>
-            </select>
-          </div>
-          <div className="flex flex-col gap-1 w-32">
-            <label className="text-base font-medium" htmlFor="product-price">
-              Product Price
-            </label>
-            <input
-              id="product-price"
-              type="number"
-              placeholder="0"
-              className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40"
-              onChange={(e) => setPrice(e.target.value)}
-              value={price}
-              required
-            />
-          </div>
-          <div className="flex flex-col gap-1 w-32">
-            <label className="text-base font-medium" htmlFor="offer-price">
-              Offer Price
-            </label>
-            <input
-              id="offer-price"
-              type="number"
-              placeholder="0"
-              className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40"
-              onChange={(e) => setOfferPrice(e.target.value)}
-              value={offerPrice}
-              required
-            />
-          </div>
-        </div>
-        <button type="submit" className="px-8 py-2.5 bg-orange-600 text-white font-medium rounded">
+
+        <button className="bg-gradient-to-r from-cyan-400 to-emerald-400 text-black px-8 py-2.5 rounded-lg font-medium hover:scale-105 transition">
           ADD
         </button>
-      </form>
-      {/* <Footer /> */}
-    </div>
-  );
-};
 
-export default AddProduct;
+      </form>
+
+    </div>
+
+  )
+}
+
+export default AddProduct
