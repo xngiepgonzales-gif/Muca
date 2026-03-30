@@ -14,7 +14,7 @@ const Banner = () => {
         <h2 className="text-2xl md:text-3xl font-semibold max-w-[290px]">
           Level Up Your Gaming Experience
         </h2>
-        <p className="max-w-[343px] font-medium text-gray-800/60">
+        <p className="max-w-[343px] font-medium text-white/60">
           From immersive sound to precise controls—everything you need to win
         </p>
 <button className="bg-gradient-to-r from-sky-400 to-emerald-400 

@@ -24,15 +24,6 @@ width={800}
 height={800}
 />
 
-<button className="absolute top-2 right-2 bg-black/40 backdrop-blur p-2 rounded-full">
-
-<Image
-className="h-3 w-3"
-src={assets.heart_icon}
-alt="heart"
-/>
-
-</button>
 
 </div>
 
@@ -50,22 +41,7 @@ alt="heart"
 
 <div className="flex items-center gap-2 text-xs">
 
-<p>4.5</p>
 
-<div className="flex gap-0.5">
-
-{Array.from({length:5}).map((_,index)=>(
-
-<Image
-key={index}
-className="h-3 w-3"
-src={index<4?assets.star_icon:assets.star_dull_icon}
-alt="star"
-/>
-
-))}
-
-</div>
 
 </div>
 

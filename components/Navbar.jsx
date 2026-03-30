@@ -5,7 +5,7 @@ import { assets } from "@/assets/assets"
 import Link from "next/link"
 import { useAppContext } from "@/context/AppContext"
 import Image from "next/image"
-
+import SideBar from "./seller/Sidebar"
 const Navbar=()=>{
 
 const {isSeller,router}=useAppContext()
@@ -22,6 +22,8 @@ alt="logo"
 />
 
 <div className="flex items-center gap-6 max-md:hidden text-sm">
+
+
 
 <Link href="/" className="hover:text-white transition">Home</Link>
 

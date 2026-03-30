@@ -8,7 +8,7 @@ import React from "react"
 
 const FloatingBrand = () => {
   return (
-    <div className="pointer-events-none absolute -left-28 top-80 z-20 hidden lg:block">
+    <div className="pointer-events-none absolute -right-28 bottom-96 z-20 hidden lg:block">
       <div className="relative">
         <p
           className="

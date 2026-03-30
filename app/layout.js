@@ -5,7 +5,7 @@ import { Toaster } from "react-hot-toast";
 import FloatingCartButton from "@/components/FloatingCartButton";
 import AuroraBackground from "@/components/AuroraBackground";
 import FloatingBrand from "@/components/FloatingBrand"
-
+import FloatingBrandcopy from "@/components/FloatingBrandcopy"
 const outfit = Outfit({
   subsets: ["latin"],
   weight: ["300","400","500"]
@@ -30,12 +30,14 @@ export default function RootLayout({ children }) {
         <div className="relative z-10">
 
           <Toaster />
-
+            <FloatingBrand />
+            <FloatingBrandcopy />
           <AppContextProvider>
 
             {children}
             
-
+   
+            
             <FloatingCartButton />
 
           </AppContextProvider>

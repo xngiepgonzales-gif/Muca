@@ -8,7 +8,7 @@ const Footer = () => {
 
     <footer className="mt-28 glass">
 
-      <div className="flex flex-col md:flex-row items-start justify-between px-8 md:px-20 gap-12 py-14 text-gray-400">
+      <div className="flex flex-col md:flex-row items-start justify-between px-8 md:px-20 gap-12 py-7 text-gray-400">
 
         <div className="max-w-sm">
 
